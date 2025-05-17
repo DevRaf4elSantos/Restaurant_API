@@ -4,7 +4,7 @@
   "description": "API para restaurantDevRaf4elSantos usando Typescript + Node + Firebird",
   "main": "index.js",
   "scripts": {
-    "dev" : "tsx watch src/index.ts"
+    "dev": "tsx watch --env-file=.env src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -27,5 +27,8 @@
     "@types/node": "^22.15.18",
     "tsx": "^4.19.4",
     "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
   }
 }

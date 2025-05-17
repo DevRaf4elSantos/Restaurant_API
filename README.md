@@ -5,7 +5,7 @@ Usando Typescript/Node e Firebird construirei uma API para consolidar meus conhe
 Usando o DER (Diagrama de Entidade - Relacionamento) criei um diagrama para trazer luz para e nortear nosso processo de desenvolvimento principalmente nesse primeiro momento.
 Caso seja necessário o escopo inicial pode ser readequado para estar em conformidade com os pontos nescessários da aplicação.
 
-![Diagrama Entidade Relacionamento](/assets/Diagrama%20Entidade%20Relacionamento.png);
+![Diagrama Entidade Relacionamento](/assets/Diagrama%20Entidade%20Relacionamento.png)
 
 ### Como Testar o Projeto em Sua Máquina ?
 
@@ -20,3 +20,4 @@ Caso seja necessário o escopo inicial pode ser readequado para estar em conform
 - Execute o seguinte código:
     - npm install
 
+- 
