@@ -1,6 +1,6 @@
 # Restaurant API
     
-## Descricão
+## Descrição
 Uma API voltada as necessidades de um restaurante DEV API RESTAURANT que foi premiado com duas estrelas *michelin* 🌟🌟 que está buscando se modernizar no controle dos seus clientes, produtos, pedidos e pagamentos.
 
 ## Features
