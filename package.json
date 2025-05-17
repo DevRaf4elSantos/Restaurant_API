@@ -1,0 +1,31 @@
+{
+  "name": "restaurant_api",
+  "version": "1.0.0",
+  "description": "API para restaurantDevRaf4elSantos usando Typescript + Node + Firebird",
+  "main": "index.js",
+  "scripts": {
+    "dev" : "tsx watch src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevRaf4elSantos/Restaurant_API.git"
+  },
+  "keywords": [
+    "Typescript",
+    "NodeJS",
+    "Firebird",
+    "Backend"
+  ],
+  "author": "DevRaf4elSantos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DevRaf4elSantos/Restaurant_API/issues"
+  },
+  "homepage": "https://github.com/DevRaf4elSantos/Restaurant_API#readme",
+  "devDependencies": {
+    "@types/express": "^5.0.2",
+    "@types/node": "^22.15.18",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}
