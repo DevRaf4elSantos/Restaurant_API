@@ -23,14 +23,15 @@
   },
   "homepage": "https://github.com/DevRaf4elSantos/Restaurant_API#readme",
   "devDependencies": {
+    "@types/cors": "^2.8.18",
     "@types/express": "^5.0.2",
     "@types/node": "^22.15.18",
     "tsx": "^4.19.4",
-    "typescript": "^5.8.3",
-    "@types/cors": "^2.8.18"
+    "typescript": "^5.8.3"
   },
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
     "express": "^5.1.0"
   }
 }
