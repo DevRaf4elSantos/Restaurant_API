@@ -1,19 +1,26 @@
 export class PedidoService { 
+    
     consultarPedidos = (id ?: string) => {
-        if(id && id != undefined) {
-            return { id : 1, valorTotal : 3000}
+        if(id && id != undefined ) {
+            return {
+                id_pedido : 2,
+                valor_pedido : 300,
+                id_cliente: 2
+            }
+        
         } else {
             return [
-                    {
-                        id : 1, 
-                        valorTotal : 3000,
-                    },
-                    {
-                        id : 2, 
-                        valorTotal : 360,
-                    }
-
-                ]
+                        {
+                            id_pedido : 2,
+                            valor_pedido : 300,
+                            id_cliente: 2
+                         },
+                         {
+                            id_pedido : 3,
+                            valor_pedido : 520,
+                            id_cliente: 1
+                         },
+                    ]
         }
     }
 }
