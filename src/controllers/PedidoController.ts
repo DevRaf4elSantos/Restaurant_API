@@ -1,16 +1,17 @@
 import { Request, Response } from "express";
 import { PedidoService } from "../services/PedidoService";
-import { json } from "stream/consumers";
 
 const pedidoService = new PedidoService();
 
 export class PedidoController {
     
-     consultarPedido =  async (req : Request, res : Response) => {
+    consultarPedido =  async (req : Request, res : Response) => {
         let retorno  =  await pedidoService.consultarPedidos();
-       
-        res.status(200).json({retorno})
-        console.log(retorno[0])
+        if(retorno == Error){
+            res.status(404).json({mensagem : "Error Página ou Dado Não Encontrado"})
+        } else {
+            res.status(200).json({retorno})
+        }        
     }
 
     criarPedido = (req : Request, res : Response) => {

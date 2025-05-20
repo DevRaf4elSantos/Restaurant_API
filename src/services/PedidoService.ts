@@ -3,9 +3,9 @@ import { executeQueryDB } from "../data/Database"
 export class PedidoService {
     async  consultarPedidos (id ?: string) : Promise<any|Error> {
         return new Promise((resolve : (value: any[] | undefined)  => void, reject : (reason?: any ) => void ) => {
-        const ssql = 'Select * from tab_clientes';
-                    
-        executeQueryDB(ssql, [], function(err : Error | null, result ?: Array<any>)  {
+        try {            
+            const ssql = 'Select * from tab_clienes';
+            executeQueryDB(ssql, [], function(err : Error | null, result ?: Array<any>)  {
                 if(err){  
                     return reject(err)
                 } else {
@@ -17,6 +17,11 @@ export class PedidoService {
                     return resolve(listaObjeto)
                 }
             })
+
+            } catch(err){
+                console.log('Entrei nesse erro do pedido')
+                return reject(err)
+            }
 
          })
         }

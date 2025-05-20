@@ -1,7 +1,6 @@
 import firebird from 'node-firebird';
 
 const options : firebird.Options = {
-
     host : 'localhost',
     port : 3050,
     database : 'C:\\BD\\RESTAURANT_API.FDB',
@@ -17,17 +16,14 @@ const options : firebird.Options = {
 export const executeQueryDB = async (ssql : string, params : Array<string>, fcalback : (err : Error | null , result ?: any[] )=>void ) =>{ 
     await firebird.attach(options, function(err , db){
     if(err){
-        console.log('erro aqui')
         return fcalback(err)
     }
 
     db.execute(ssql, params, function(error, resultado){
         db.detach()
         if(error){
-            console.log('Entrei no error do criarpedidoBD 2')
             return fcalback(error);
         } else {
-            console.log('sucesso na conexão')
             return fcalback(null, resultado)
         }
     }) 
