@@ -25,4 +25,13 @@ export class PedidoService {
 
          })
         }
+    async alterarPedido(id : number) : Promise<any | Error> {
+        return new Promise((resolve: (value : unknown) => void, reject : (reason? :any) => void) => {
+            try {
+                const ssql = '';
+            } catch(Error){
+                console.log('ERRORRRRRRR');
+            }
+        })
+    }
     }
