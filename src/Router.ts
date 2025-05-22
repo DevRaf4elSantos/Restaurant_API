@@ -1,12 +1,12 @@
 import { Router, Request, Response} from "express";
-import { PedidoController } from "./controllers/pedidoController";
+import { PedidoController } from "./controllers/PedidoController";
 
 const pedidoController = new PedidoController()
 
 export const router = Router();
 
 router.get('/pedidos', (req : Request, res : Response) => {
-    pedidoController.consultarPedido(req, res)
+    pedidoController.criarPedido(req, res)
 })
 
 router.post('/pedidos', (req : Request, res : Response) => {
