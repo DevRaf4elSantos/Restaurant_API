@@ -26,26 +26,26 @@ CREATE TABLE TAB_PRODUTOS(
 
 
 CREATE TABLE tab_pedidos (
-        id_pedido DM_ID_COD PRIMARY KEY,
-        id_cliente DM_ID_COD,
-        id_tipo_pagamento DM_ID_COD, 
-        id_status_pagamento DM_ID_COD,
-        qtd_produtos_pedido DM_QTD,
-        total_valor_pedido DM_PRECO
+    id_pedido DM_ID_COD PRIMARY KEY,
+    id_cliente DM_ID_COD,
+    id_tipo_pagamento DM_ID_COD,
+    id_status_pagamento DM_ID_COD,
+    qtd_produtos_pedido DM_QTD,
+    total_valor_pedido DM_PRECO,
+    FOREIGN KEY (id_cliente) REFERENCES tab_clientes (id_cliente),
+    FOREIGN KEY (id_tipo_pagamento) REFERENCES TAB_TIPOS_PAGAMENTOS (id_tipo_pagamento),
+    FOREIGN KEY (id_status_pagamento) REFERENCES TAB_STATUS_PAGAMENTOS (id_status_pagamento)
 ); commit;
 
 
 
-
-CREATE TABLE TAB_ITENS_PEDIDO(
-        id_item DM_ID_COD Primary Key,
-id_produto DM_ID_COD,
-id_pedido  DM_ID_COD,
-qtd_itens_pedido DM_QTD,
-unit_valor_pedido DM_PRECO,
-total_valor_pedido DM_PRECO,        
-FOREING KEY (id_produto) REFERENCES tab_produtos(id_produto),
-FOREING KEY (id_pedido) REFERENCES tab_pedido(id_pedido)
-
-
+CREATE TABLE TAB_ITENS_PEDIDO (
+    id_item DM_ID_COD PRIMARY KEY,
+    id_produto DM_ID_COD,
+    id_pedido DM_ID_COD,
+    qtd_itens_pedido DM_QTD,
+    unit_valor_pedido DM_PRECO,
+    total_valor_pedido DM_PRECO,
+    FOREIGN KEY (id_produto) REFERENCES tab_produtos(id_produto),
+    FOREIGN KEY (id_pedido) REFERENCES tab_pedidos(id_pedido) -- Corrigido para 'tab_pedidos' (plural)
 ); commit;
