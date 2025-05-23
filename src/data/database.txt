@@ -1,0 +1,51 @@
+﻿Create DOMAIN DM_ID_COD AS INTEGER NOT NULL UNIQUE;
+CREATE DOMAIN DM_NAME AS VARCHAR(180) NOT NULL;
+CREATE DOMAIN DM_PRECO AS DECIMAL(12,2) NOT NULL;
+CREATE DOMAIN DM_QTD AS INTEGER NOT NULL;
+commit;
+
+
+CREATE TABLE TAB_TIPOS_PAGAMENTOS(
+        id_tipo_pagamento DM_ID_COD Primary Key,
+        nome_tipo_pagamento DM_NAME
+); COMMIT;
+
+
+CREATE TABLE TAB_STATUS_PAGAMENTOS(
+        id_status_pagamento DM_ID_COD Primary Key,
+        nome_status_pagamento DM_NAME
+); COMMIT;
+
+
+CREATE TABLE TAB_PRODUTOS(
+        id_produto DM_ID_COD Primary Key,
+        nome_produto DM_NAME,
+        preco_produto DM_PRECO,
+        qtd_produto DM_QTD
+); commit;
+
+
+CREATE TABLE tab_pedidos (
+        id_pedido DM_ID_COD PRIMARY KEY,
+        id_cliente DM_ID_COD,
+        id_tipo_pagamento DM_ID_COD, 
+        id_status_pagamento DM_ID_COD,
+        qtd_produtos_pedido DM_QTD,
+        total_valor_pedido DM_PRECO
+); commit;
+
+
+
+
+CREATE TABLE TAB_ITENS_PEDIDO(
+        id_item DM_ID_COD Primary Key,
+id_produto DM_ID_COD,
+id_pedido  DM_ID_COD,
+qtd_itens_pedido DM_QTD,
+unit_valor_pedido DM_PRECO,
+total_valor_pedido DM_PRECO,        
+FOREING KEY (id_produto) REFERENCES tab_produtos(id_produto),
+FOREING KEY (id_pedido) REFERENCES tab_pedido(id_pedido)
+
+
+); commit;
