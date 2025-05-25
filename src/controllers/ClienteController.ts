@@ -13,4 +13,15 @@ export class ClienteController {
         }  
     }
 
+    cadastrarCliente = async (req : Request, res : Response ) => {
+        const nomeCliente = req.body.nome;
+        const mesaCliente = req.body.mesa;
+        const retorno = await clienteService.cadastrarCliente(nomeCliente, mesaCliente);
+        if(retorno == Error){
+            res.status(404).json({mensagem : "Error Página ou Dado Não Encontrado"});
+        } else {
+            res.status(201).json({retorno});
+        }  
+    }
+
 }
