@@ -33,7 +33,7 @@ router.post('/clientes', (req : Request, res : Response) => {
 })
 
 router.patch('/clientes', (req : Request, res : Response) => {
-    clienteController.consultarCliente(req, res);
+    clienteController.alterarCliente(req, res);
 })
 
 router.delete('/clientes', (req : Request, res : Response) => {

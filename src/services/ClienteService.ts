@@ -58,4 +58,44 @@ export class ClienteService {
         )
     }
 
+    async alterarCliente(id : number, nome : string, mesa : number) : Promise<any|Error> {
+        return new Promise((resolve : (value : any) => void, reject : (reason?: any ) => void) => {
+            try {
+                if(nome != undefined && nome.length > 3 && mesa != undefined && id != undefined){
+                    const ssql = 'UPDATE tab_clientes SET nome_cliente = ?, mesa_cliente = ? WHERE id_cliente = ?;';
+                    executeQueryDB(ssql, [nome, mesa.toString(), id.toString()], function(err : Error | null, result ?: Array<any>)  {
+                    if(err){  
+                        return reject(err)
+                    } else { 
+                        return resolve(result)
+                    }
+                })} 
+                else if(nome != undefined && nome.length > 3 && mesa == undefined && id != undefined ){
+                    const ssql = 'UPDATE tab_clientes SET nome_cliente = ? WHERE id_cliente = ?;';
+                    executeQueryDB(ssql, [nome, id.toString()], function(err : Error | null, result ?: Array<any>)  {
+                    if(err){  
+                        return reject(err)
+                    } else { 
+                        return resolve(result)
+                    }
+                })} 
+                else if(nome == undefined && mesa != undefined ){
+                    const ssql = 'UPDATE tab_clientes SET mesa_cliente = ? WHERE id_cliente = ?;';
+                    executeQueryDB(ssql, [mesa.toString(), id.toString()], function(err : Error | null, result ?: Array<any>)  {
+                    if(err){  
+                        return reject(err)
+                    } else { 
+                        return resolve(result)
+                    }
+                })} 
+                else {
+                    throw new Error; 
+                }
+            }
+            catch(erro){
+                console.log('Deu erro')
+            }} 
+        )
+    }
+
 }

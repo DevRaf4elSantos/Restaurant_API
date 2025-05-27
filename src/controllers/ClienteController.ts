@@ -24,4 +24,16 @@ export class ClienteController {
         }  
     }
 
+    alterarCliente = async (req : Request, res : Response ) => {
+        const idCliente = req.body.id;
+        const nomeCliente = req.body.nome;
+        const mesaCliente = req.body.mesa;
+        const retorno = await clienteService.alterarCliente(idCliente, nomeCliente, mesaCliente);
+        if(retorno == Error){
+            res.status(404).json({mensagem : "Error Página ou Dado Não Encontrado"});
+        } else {
+            res.status(201).json({retorno});
+        }  
+    }
+
 }
