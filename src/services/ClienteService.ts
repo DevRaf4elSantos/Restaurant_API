@@ -65,35 +65,30 @@ export class ClienteService {
                     const ssql = 'UPDATE tab_clientes SET nome_cliente = ?, mesa_cliente = ? WHERE id_cliente = ?;';
                     executeQueryDB(ssql, [nome, mesa.toString(), id.toString()], function(err : Error | null, result ?: Array<any>)  {
                     if(err){  
-                        return reject(err)
+                        return reject(err);
                     } else { 
-                        return resolve(result)
+                        return resolve(result);
                     }
                 })} 
                 else if(nome != undefined && nome.length > 3 && mesa == undefined && id != undefined ){
                     const ssql = 'UPDATE tab_clientes SET nome_cliente = ? WHERE id_cliente = ?;';
                     executeQueryDB(ssql, [nome, id.toString()], function(err : Error | null, result ?: Array<any>)  {
                     if(err){  
-                        return reject(err)
+                        return reject(err);
                     } else { 
-                        return resolve(result)
+                        return resolve(result);
                     }
                 })} 
                 else if(nome == undefined && mesa != undefined ){
-                    const ssql = 'UPDATE tab_clientes SET mesa_cliente = ? WHERE id_cliente = ?;';
-                    executeQueryDB(ssql, [mesa.toString(), id.toString()], function(err : Error | null, result ?: Array<any>)  {
-                    if(err){  
-                        return reject(err)
-                    } else { 
-                        return resolve(result)
-                    }
-                })} 
+                        return resolve({mensagem : "Digite ao menos um dos campos para seguir com alteração"});
+                }
                 else {
                     throw new Error; 
                 }
             }
             catch(erro){
-                console.log('Deu erro')
+                console.log('Deu erro');
+                return erro;
             }} 
         )
     }
