@@ -1,4 +1,4 @@
-import { executeQueryDB } from "../data/Database"
+import { executeQueryDB } from "../data/Database";
 
 export class PedidoService {
     async  consultarPedidos (id ?: string) : Promise<any|Error> {
