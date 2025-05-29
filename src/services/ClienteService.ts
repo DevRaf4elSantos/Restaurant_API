@@ -90,7 +90,31 @@ export class ClienteService {
                 console.log('Deu erro');
                 return erro;
             }} 
+
+            
         )
     }
 
-}
+    async deletarCliente(id ?: number) : Promise<any|Error> {
+        return new Promise((resolve : (value : any) => void, reject : (reason?: any ) => void) => {
+            try {
+                
+                if(id != undefined){
+                    const idString = id.toString()
+                    const ssql = 'Delete from tab_clientes where id_cliente = ? returning id_cliente';
+                    executeQueryDB(ssql, [idString], function(err : Error | null, result ?: Array<any>)  {
+                        if(err){  
+                            return reject(err)
+                        } else {
+                            return resolve(result);
+                        }
+                    })     
+                }
+
+            } catch(erro){
+            
+                console.log('Deu erro')
+            }
+        }
+    )}} 
+        

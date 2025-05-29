@@ -36,4 +36,14 @@ export class ClienteController {
         }  
     }
 
+    deletarCliente = async (req : Request, res : Response ) => {
+        const idCliente = req.body.id;
+        const retorno = await clienteService.deletarCliente(idCliente);
+        if(retorno == Error){
+            res.status(404).json({mensagem : "Error Página ou Dado Não Encontrado"});
+        } else {
+            res.status(201).json({retorno});
+        }  
+    }
+
 }

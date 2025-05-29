@@ -37,5 +37,5 @@ router.patch('/clientes', (req : Request, res : Response) => {
 })
 
 router.delete('/clientes', (req : Request, res : Response) => {
-    clienteController.consultarCliente(req, res);
+    clienteController.deletarCliente(req, res);
 });
