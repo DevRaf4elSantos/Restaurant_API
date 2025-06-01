@@ -5,12 +5,23 @@ const clienteService = new ClienteService();
 
 export class ClienteController {
     consultarCliente = async (req : Request, res : Response ) => {
-        const retorno = await clienteService.consultarCliente()
-        if(retorno == Error){
-            res.status(404).json({mensagem : "Error Página ou Dado Não Encontrado"})
+        const id = req.body.id;
+        if(id != undefined){
+            const retorno = await clienteService.consultarCliente(id);
+            if(retorno == Error){
+                res.status(404).json({mensagem : "Error Página ou Dado Não Encontrado"});
+            } else {
+                res.status(200).json({retorno});
+            } 
         } else {
-            res.status(200).json({retorno})
-        }  
+            const retorno = await clienteService.consultarCliente();
+            if(retorno == Error){
+                res.status(404).json({mensagem : "Error Página ou Dado Não Encontrado"});
+            } else {
+                res.status(200).json({retorno});
+            } 
+        } 
+         
     }
 
     cadastrarCliente = async (req : Request, res : Response ) => {

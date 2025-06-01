@@ -6,17 +6,17 @@ export class ClienteService {
             try {
                 if(id != undefined){
                     const idString = id.toString();
-                    const ssql = 'Select * from tab_clientes where id_cliente = ?';
+                    const ssql = 'Select * from tab_clientes where id_cliente = ? and status_cliente = true';
                     executeQueryDB(ssql, [idString], function(err : Error | null, result ?: Array<any>)  {
                         if(err){  
                             return reject(err)
                         } else {
-                            return result;
+                            return resolve(result)
                         }
                     })     
                 }
                 else {
-                    const ssql = 'Select * from tab_clientes';
+                    const ssql = 'Select * from tab_clientes where status_cliente = true';
                     executeQueryDB(ssql, [], function(err : Error | null, result ?: Array<any>)  {
                     if(err){  
                         return reject(err)
@@ -90,8 +90,6 @@ export class ClienteService {
                 console.log('Deu erro');
                 return erro;
             }} 
-
-            
         )
     }
 
@@ -101,7 +99,7 @@ export class ClienteService {
                 
                 if(id != undefined){
                     const idString = id.toString()
-                    const ssql = 'Delete from tab_clientes where id_cliente = ? returning id_cliente';
+                    const ssql = 'UPDATE tab_clientes SET status_cliente = false where id_cliente = ? returning id_cliente';
                     executeQueryDB(ssql, [idString], function(err : Error | null, result ?: Array<any>)  {
                         if(err){  
                             return reject(err)
