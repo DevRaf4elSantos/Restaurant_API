@@ -36,7 +36,7 @@ export class ClienteService {
         )
     }
 
-    async cadastrarCliente(nome : string, mesa : number) : Promise<any|Error> {
+    async cadastrarCliente(nome : string | undefined, mesa : number | undefined) : Promise<any|Error> {
         return new Promise((resolve : (value : any) => void, reject : (reason?: any ) => void) => {
             try {
                 if(nome != undefined && nome.length > 3 && mesa != undefined ){
