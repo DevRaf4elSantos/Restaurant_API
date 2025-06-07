@@ -15,7 +15,7 @@ export class PedidoController {
     }
 
     criarPedido = async (req : Request, res : Response) => {
-        const nome = req.body.nome;
+        const nome : string | undefined = req.body.nome;
         let retorno  =  await pedidoService.alterarPedido(nome);
         if(retorno == Error){
             res.status(404).json({mensagem : "Error Página ou Dado Não Encontrado"})
